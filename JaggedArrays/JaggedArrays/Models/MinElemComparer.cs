@@ -6,14 +6,24 @@ namespace JaggedArrays.Models
     {
         public bool ToCompare(int[] array1, int[] array2, bool isMaxRange)
         {
-            if (array1 == null)
+            if (isMaxRange && array1 == null)
             {
-                array1 = new int[] { 0 };
+                return false;
             }
 
-            if (array2 == null)
+            if (isMaxRange && array2 == null)
             {
-                array2 = new int[] { 0 };
+                return true;
+            }
+
+            if (!isMaxRange && array1 == null)
+            {
+                return true;
+            }
+
+            if (!isMaxRange && array2 == null)
+            {
+                return false;
             }
 
             if (isMaxRange && (FindMin(array1) > FindMin(array2)))
