@@ -67,12 +67,7 @@ namespace JaggedArrays
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] == null)
-                {
-                    throw new ArgumentNullException(nameof(array) + " member can't be equal to null.");
-                }
-
-                if (array[i].Length == 0)
+                if (array[i] != null && array[i].Length == 0)
                 {
                     throw new ArgumentException(nameof(array) + " member length can't be equal to 0.");
                 }

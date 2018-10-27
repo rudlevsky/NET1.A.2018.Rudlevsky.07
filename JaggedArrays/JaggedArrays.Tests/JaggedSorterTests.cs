@@ -162,11 +162,5 @@ namespace JaggedArrays.Tests
         {
             Assert.Throws<ArgumentException>(() => JaggedSorter.Sort(new int[][] { new int[] { } }, new SumComparer(), true));
         }
-
-        [Test]
-        public void MethodSort_OneOfArrayNull_ArgumentNullExcepton()
-        {
-            Assert.Throws<ArgumentNullException>(() => JaggedSorter.Sort(new int[][] { null }, new SumComparer(), true));
-        }
     }
 }
