@@ -13,12 +13,11 @@ namespace JaggedArrays
         /// </summary>
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
-        /// <param name="isMaxRange">Ascending or descending sort.</param>
-        public static void Sort(int[][] array, ICompare comparer, bool isMaxRange)
+        public static void Sort(int[][] array, ICompare comparer)
         {
             CheckExceptCeses(array, comparer);
 
-            Sorter(array, comparer, isMaxRange);
+            Sorter(array, comparer);
         }
 
         /// <summary>
@@ -27,13 +26,13 @@ namespace JaggedArrays
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
         /// <param name="isMaxRange">Ascending or descending sort.</param>
-        private static void Sorter(int[][] array, ICompare comparer, bool isMaxRange)
+        private static void Sorter(int[][] array, ICompare comparer)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (comparer.ToCompare(array[i], array[j], isMaxRange))
+                    if (comparer.ToCompare(array[i], array[j]))
                     {
                         Swap(ref array[i], ref array[j]);
                     }

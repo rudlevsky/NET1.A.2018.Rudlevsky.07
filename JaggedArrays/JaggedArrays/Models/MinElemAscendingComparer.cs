@@ -2,36 +2,21 @@
 
 namespace JaggedArrays.Models
 {
-    public class MinElemComparer : ICompare
+    public class MinElemAscendingComparer : ICompare
     {
-        public bool ToCompare(int[] array1, int[] array2, bool isMaxRange)
+        public bool ToCompare(int[] array1, int[] array2)
         {
-            if (isMaxRange && array1 == null)
+            if (array1 == null)
             {
                 return false;
             }
 
-            if (isMaxRange && array2 == null)
+            if (array2 == null)
             {
                 return true;
             }
 
-            if (!isMaxRange && array1 == null)
-            {
-                return true;
-            }
-
-            if (!isMaxRange && array2 == null)
-            {
-                return false;
-            }
-
-            if (isMaxRange && (FindMin(array1) > FindMin(array2)))
-            {
-                return true;
-            }
-
-            if (!isMaxRange && (FindMin(array1) < FindMin(array2)))
+            if (FindMin(array1) > FindMin(array2))
             {
                 return true;
             }

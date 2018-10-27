@@ -2,36 +2,21 @@
 
 namespace JaggedArrays.Models
 {
-    public class MaxElemComparer : ICompare
+    public class MaxElemDescendingComparer: ICompare
     {
-        public bool ToCompare(int[] array1, int[] array2, bool isMaxRange)
+        public bool ToCompare(int[] array1, int[] array2)
         {
-            if (isMaxRange && array1 == null)
+            if (array1 == null)
+            {
+                return true;
+            }
+
+            if (array2 == null)
             {
                 return false;
             }
 
-            if (isMaxRange && array2 == null)
-            {
-                return true;
-            }
-
-            if (!isMaxRange && array1 == null)
-            {
-                return true;
-            }
-
-            if (!isMaxRange && array2 == null)
-            {
-                return false;
-            }
-
-            if (isMaxRange && (FindMax(array1) > FindMax(array2)))
-            {
-                return true;
-            }
-
-            if (!isMaxRange && (FindMax(array1) < FindMax(array2)))
+            if (FindMax(array1) < FindMax(array2))
             {
                 return true;
             }
@@ -55,3 +40,4 @@ namespace JaggedArrays.Models
         }
     }
 }
+
