@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\ICompare.cs" />
     <Compile Include="JaggedSorter.cs" />
-    <Compile Include="Models\MaxElemCpmparer.cs" />
+    <Compile Include="Models\MaxElemComparer.cs" />
     <Compile Include="Models\MinElemComparer.cs" />
     <Compile Include="Models\SumComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
