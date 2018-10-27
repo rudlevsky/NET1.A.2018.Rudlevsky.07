@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using JaggedArrays.Interfaces;
+﻿using JaggedArrays.Interfaces;
 
 namespace JaggedArrays.Models
 {
@@ -7,17 +6,29 @@ namespace JaggedArrays.Models
     {
         public bool ToCompare(int[] array1, int[] array2, bool isMaxRange)
         {
-            if (isMaxRange && (array1.Sum() > array2.Sum()))
+            if (isMaxRange && (FindSum(array1) > FindSum(array2)))
             {
                 return true;
             }
 
-            if (!isMaxRange && (array1.Sum() < array2.Sum()))
+            if (!isMaxRange && (FindSum(array1) < FindSum(array2)))
             {
                 return true;
             }
 
             return false;
+        }
+
+        private int FindSum(int[] array)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+
+            return sum;
         }
     }
 }

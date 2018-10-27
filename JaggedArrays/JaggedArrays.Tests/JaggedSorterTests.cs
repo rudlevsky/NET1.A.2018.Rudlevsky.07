@@ -18,7 +18,8 @@ namespace JaggedArrays.Tests
             };
 
             int[][] expected =
-{               new int[] { 4, 0, 2, 6 },
+            {
+                new int[] { 4, 0, 2, 6 },
                 new int[] { 5, 3, 1, 7, 9 },
                 new int[] { 22, 33, 11 }
             };
