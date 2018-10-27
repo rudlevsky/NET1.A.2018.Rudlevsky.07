@@ -140,6 +140,163 @@ namespace JaggedArrays.Tests
         }
 
         [Test]
+        public void MethodSort_SumComparerAscendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+                null,
+                null,
+                new int[] { 4, 0, 2, 6 },
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 22, 33, 11 }
+            };
+
+            JaggedSorter.Sort(array, new SumComparer(), true);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
+        public void MethodSort_SumComparerDescendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+               new int[] { 22, 33, 11 },
+               new int[] { 5, 3, 1, 7, 9 },
+               new int[] { 4, 0, 2, 6 },
+               null,
+               null
+            };
+
+            JaggedSorter.Sort(array, new SumComparer(), false);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
+        public void MethodSort_MaxElemComparerAscendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+                null,
+                null,
+                new int[] { 4, 0, 2, 6 },
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 22, 33, 11 }
+            };
+
+            JaggedSorter.Sort(array, new MaxElemComparer(), true);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
+        public void MethodSort_MaxElemComparerDescendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+               new int[] { 22, 33, 11 },
+               new int[] { 5, 3, 1, 7, 9 },
+               new int[] { 4, 0, 2, 6 },
+               null,
+               null
+            };
+
+            JaggedSorter.Sort(array, new MaxElemComparer(), false);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
+        public void MethodSort_MinElemComparerAscendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+               null,
+               null,
+               new int[] { 4, 0, 2, 6 },
+               new int[] { 5, 3, 1, 7, 9 },
+               new int[] { 22, 33, 11 },
+            };
+
+            JaggedSorter.Sort(array, new MinElemComparer(), true);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
+        public void MethodSort_MinElemComparerDescendingNull_ReturnSortedArray()
+        {
+            int[][] array =
+            {
+                null,
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                new int[] { 22, 33, 11 }
+            };
+
+            int[][] expected =
+            {
+
+                new int[] { 22, 33, 11 },
+                new int[] { 5, 3, 1, 7, 9 },
+                new int[] { 4, 0, 2, 6 },
+                null,
+                null
+            };
+
+            JaggedSorter.Sort(array, new MinElemComparer(), false);
+
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [Test]
         public void MethodSort_NullComparer_ArgumentNullExcepton()
         {
             Assert.Throws<ArgumentNullException>(() => JaggedSorter.Sort(new int[][] { new int[] { 1, 3, 5, 7, 9 } }, null, true));
