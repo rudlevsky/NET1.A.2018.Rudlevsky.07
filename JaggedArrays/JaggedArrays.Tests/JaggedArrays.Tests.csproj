@@ -55,11 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JaggedSorterTests.cs" />
+    <Compile Include="Models\MaxElemAscendingComparer.cs" />
+    <Compile Include="Models\MaxElemDescendingComparer.cs" />
+    <Compile Include="Models\MinElemAscendingComparer.cs" />
+    <Compile Include="Models\MinElemDescendingComparer.cs" />
+    <Compile Include="Models\SumAscendingComparer.cs" />
+    <Compile Include="Models\SumDescendingComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\JaggedArrays\JaggedArrays.csproj">
       <Project>{42f3cb91-89e1-4537-81bc-3e9247559515}</Project>

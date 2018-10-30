@@ -13,9 +13,9 @@ namespace JaggedArrays
         /// </summary>
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
-        public static void Sort(int[][] array, ICompare comparer)
+        public static void Sort(int[][] array, IComparer comparer)
         {
-            CheckExceptCeses(array, comparer);
+            CheckExceptCases(array, comparer);
 
             Sorter(array, comparer);
         }
@@ -26,13 +26,13 @@ namespace JaggedArrays
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
         /// <param name="isMaxRange">Ascending or descending sort.</param>
-        private static void Sorter(int[][] array, ICompare comparer)
+        private static void Sorter(int[][] array, IComparer comparer)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (comparer.ToCompare(array[i], array[j]))
+                    if (comparer.ToCompare(array[i], array[j]) > 0)
                     {
                         Swap(ref array[i], ref array[j]);
                     }
@@ -47,7 +47,7 @@ namespace JaggedArrays
             array2 = temp;
         }
 
-        private static void CheckExceptCeses(int[][] array, ICompare comparer)
+        private static void CheckExceptCases(int[][] array, IComparer comparer)
         {
             if (comparer == null)
             {

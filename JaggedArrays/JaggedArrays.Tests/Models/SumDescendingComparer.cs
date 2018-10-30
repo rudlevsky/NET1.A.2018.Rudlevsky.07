@@ -1,27 +1,27 @@
 ﻿using JaggedArrays.Interfaces;
 
-namespace JaggedArrays.Models
+namespace JaggedArrays.Tests.Models
 {
-    public class SumDescendingComparer: ICompare
+    public class SumDescendingComparer: IComparer
     {
-        public bool ToCompare(int[] array1, int[] array2)
+        public int ToCompare(int[] array1, int[] array2)
         {
             if (array1 == null)
             {
-                return true;
+                return 1;
             }
 
             if (array2 == null)
             {
-                return false;
+                return -1;
             }
 
             if (FindSum(array1) < FindSum(array2))
             {
-                return true;
+                return 1;
             }
 
-            return false;
+            return -1;
         }
 
         private int FindSum(int[] array)

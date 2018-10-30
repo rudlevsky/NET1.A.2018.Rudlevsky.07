@@ -1,6 +1,6 @@
 ﻿using System;
-using JaggedArrays.Models;
 using NUnit.Framework;
+using JaggedArrays.Tests.Models;
 
 namespace JaggedArrays.Tests
 {

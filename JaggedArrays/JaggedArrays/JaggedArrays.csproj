@@ -41,14 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ICompare.cs" />
+    <Compile Include="Interfaces\IComparer.cs" />
     <Compile Include="JaggedSorter.cs" />
-    <Compile Include="Models\MaxElemAscendingComparer.cs" />
-    <Compile Include="Models\MaxElemDescendingComparer.cs" />
-    <Compile Include="Models\MinElemAscendingComparer.cs" />
-    <Compile Include="Models\MinElemDescendingComparer.cs" />
-    <Compile Include="Models\SumAscendingComparer.cs" />
-    <Compile Include="Models\SumDescendingComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
