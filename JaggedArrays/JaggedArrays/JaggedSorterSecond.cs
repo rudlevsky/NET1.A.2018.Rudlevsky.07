@@ -1,38 +1,58 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using JaggedArrays.Interfaces;
 
 namespace JaggedArrays
 {
     /// <summary>
+    /// Contains method for sorting arrays.
+    /// </summary>
+    /// <param name="array1">First array for sorting.</param>
+    /// <param name="array2">First array for sorting.</param>
+    /// <returns>Sorted array.</returns>
+    public delegate int TransformerSecond(int[] array1, int[] array2);
+
+    /// <summary>
     /// Class contains method for sorting jagged arrays.
     /// </summary>
-    public static class JaggedSorter
+    public static class JaggedSorterSecond
     {
         /// <summary>
         /// Checks exception cases and sorts array.
         /// </summary>
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
-        public static void Sort(int[][] array, IComparer comparer)
+        public static void Sort(int[][] array, IComparer comparer) =>
+            Sort(array, comparer, comparer.ToCompare);
+
+        /// <summary>
+        /// Checks exception cases and sorts array.
+        /// </summary>
+        /// <param name="array">Array for sorting.</param>
+        /// <param name="comparer">Sort comparer.</param>
+        /// <param name="transformer">Method which implements comparing.</param>
+        public static void Sort(int[][] array, IComparer comparer, TransformerSecond transformer)
         {
             CheckExceptCases(array, comparer);
 
-            Sorter(array, comparer);
+            Sorter(array, transformer);
         }
 
         /// <summary>
         /// Sorts user's array.
         /// </summary>
         /// <param name="array">Array for sorting.</param>
-        /// <param name="comparer">Sort comparer.</param>
-        /// <param name="isMaxRange">Ascending or descending sort.</param>
-        private static void Sorter(int[][] array, IComparer comparer)
+        /// <param name="transformer">Method which implements comparing.</param>
+        private static void Sorter(int[][] array, TransformerSecond transformer)
         {
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
                 {
-                    if (comparer.ToCompare(array[i], array[j]) > 0)
+                    if (transformer(array[i], array[j]) > 0)
                     {
                         Swap(ref array[i], ref array[j]);
                     }
@@ -72,5 +92,5 @@ namespace JaggedArrays
                 }
             }
         }
-    }  
+    }
 }

@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IComparer.cs" />
-    <Compile Include="JaggedSorter.cs" />
+    <Compile Include="JaggedSorterFirst.cs" />
+    <Compile Include="JaggedSorterSecond.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
