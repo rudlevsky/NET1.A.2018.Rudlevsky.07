@@ -41,9 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegateInterface.cs" />
+    <Compile Include="InterfaceDelegate.cs" />
     <Compile Include="Interfaces\IComparer.cs" />
-    <Compile Include="JaggedSorterFirst.cs" />
-    <Compile Include="JaggedSorterSecond.cs" />
+    <Compile Include="JaggedSorter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

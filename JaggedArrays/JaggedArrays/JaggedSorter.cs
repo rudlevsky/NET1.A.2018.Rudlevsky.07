@@ -6,44 +6,53 @@ namespace JaggedArrays
     /// <summary>
     /// Contains method for sorting arrays.
     /// </summary>
-    /// <param name="array1">First array for sorting.</param>
-    /// <param name="array2">First array for sorting.</param>
-    /// <returns>Sorted array.</returns>
-    public delegate int TransformerSecond(int[] array1, int[] array2);
+    /// <param name="array">Array for sorting.</param>
+    /// <param name="comparer">Sort comparer.</param>
+    public delegate void TransformerInterface(int[][] array, IComparer comparer);
+
+    /// <summary>
+    /// Contains method for comparing arrays.
+    /// </summary>
+    /// <param name="array1">First array for comparing.</param>
+    /// <param name="array2">Second array for comparing.</param>
+    /// <returns>Compare result.</returns>
+    public delegate int TransformerArrays(int[] array1, int[] array2);
 
     /// <summary>
     /// Class contains method for sorting jagged arrays.
     /// </summary>
-    public static class JaggedSorterSecond
+    public static class JaggedSorter
     {
         /// <summary>
-        /// Checks exception cases and sorts array.
+        /// Sorts user's array.
         /// </summary>
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
-        public static void Sort(int[][] array, IComparer comparer) =>
-            Sort(array, comparer, comparer.ToCompare);
-
-        /// <summary>
-        /// Checks exception cases and sorts array.
-        /// </summary>
-        /// <param name="array">Array for sorting.</param>
-        /// <param name="comparer">Sort comparer.</param>
-        /// <param name="transformer">Method which implements comparing.</param>
-        public static void Sort(int[][] array, IComparer comparer, TransformerSecond transformer)
+        public static void Sorter(int[][] array, IComparer comparer)
         {
-            CheckExceptCases(array, comparer);
+            CheckExceptCases(array);
 
-            Sorter(array, transformer);
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (comparer.ToCompare(array[i], array[j]) > 0)
+                    {
+                        Swap(ref array[i], ref array[j]);
+                    }
+                }
+            }
         }
 
         /// <summary>
         /// Sorts user's array.
         /// </summary>
-        /// <param name="array">Array for sorting.</param>
-        /// <param name="transformer">Method which implements comparing.</param>
-        private static void Sorter(int[][] array, TransformerSecond transformer)
+        /// <param name="array">User's array.</param>
+        /// <param name="transformer">Sorting method.</param>
+        public static void Sorter(int[][] array, TransformerArrays transformer)
         {
+            CheckExceptCases(array);
+
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -63,13 +72,8 @@ namespace JaggedArrays
             array2 = temp;
         }
 
-        private static void CheckExceptCases(int[][] array, IComparer comparer)
+        private static void CheckExceptCases(int[][] array)
         {
-            if (comparer == null)
-            {
-                throw new ArgumentNullException(nameof(comparer) + " can't be equal to null.");
-            }
-
             if (array == null)
             {
                 throw new ArgumentNullException(nameof(array) + " can't be equal to null.");
@@ -88,5 +92,5 @@ namespace JaggedArrays
                 }
             }
         }
-    }
+    }  
 }
