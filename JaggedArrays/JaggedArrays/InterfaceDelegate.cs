@@ -12,7 +12,12 @@ namespace JaggedArrays
         /// </summary>
         /// <param name="array">Array for sorting.</param>
         /// <param name="comparer">Sort comparer.</param>
-        public static void Sort(int[][] array, IComparer comparer) =>
+        public static void Sort(int[][] array, IComparer comparer)
+        {
+            JaggedSorter.CheckExceptCases(array);
+
             JaggedSorter.Sorter(array, comparer.ToCompare);
+        }
+            
     }
 }

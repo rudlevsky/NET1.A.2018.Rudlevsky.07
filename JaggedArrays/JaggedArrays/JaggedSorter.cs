@@ -4,13 +4,6 @@ using JaggedArrays.Interfaces;
 namespace JaggedArrays
 {
     /// <summary>
-    /// Contains method for sorting arrays.
-    /// </summary>
-    /// <param name="array">Array for sorting.</param>
-    /// <param name="comparer">Sort comparer.</param>
-    public delegate void TransformerInterface(int[][] array, IComparer comparer);
-
-    /// <summary>
     /// Contains method for comparing arrays.
     /// </summary>
     /// <param name="array1">First array for comparing.</param>
@@ -30,8 +23,6 @@ namespace JaggedArrays
         /// <param name="comparer">Sort comparer.</param>
         public static void Sorter(int[][] array, IComparer comparer)
         {
-            CheckExceptCases(array);
-
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -51,8 +42,6 @@ namespace JaggedArrays
         /// <param name="transformer">Sorting method.</param>
         public static void Sorter(int[][] array, TransformerArrays transformer)
         {
-            CheckExceptCases(array);
-
             for (int i = 0; i < array.Length; i++)
             {
                 for (int j = i + 1; j < array.Length; j++)
@@ -72,7 +61,7 @@ namespace JaggedArrays
             array2 = temp;
         }
 
-        private static void CheckExceptCases(int[][] array)
+        public static void CheckExceptCases(int[][] array)
         {
             if (array == null)
             {

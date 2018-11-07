@@ -24,7 +24,7 @@ namespace JaggedArrays.Tests
                 new int[] { 22, 33, 11 }
             };
 
-            JaggedSorter.Sort(array, new SumAscendingComparer());
+            DelegateInterface.Sort(array, new SumAscendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -46,7 +46,7 @@ namespace JaggedArrays.Tests
                new int[] { 4, 0, 2, 6 }
             };
 
-            JaggedSorter.Sort(array, new SumDescendingComparer());
+            DelegateInterface.Sort(array, new SumDescendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -68,7 +68,7 @@ namespace JaggedArrays.Tests
                new int[] { 22, 33, 11 }
             };
 
-            JaggedSorter.Sort(array, new MaxElemAscendingComparer());
+            DelegateInterface.Sort(array, new MaxElemAscendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -90,7 +90,7 @@ namespace JaggedArrays.Tests
                new int[] { 4, 0, 2, 6 }
             };
 
-            JaggedSorter.Sort(array, new MaxElemDescendingComparer());
+            DelegateInterface.Sort(array, new MaxElemDescendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -112,7 +112,7 @@ namespace JaggedArrays.Tests
                new int[] { 22, 33, 11 }
             };
 
-            JaggedSorter.Sort(array, new MinElemAscendingComparer());
+            InterfaceDelegate.Sort(array, new MinElemAscendingComparer());
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -134,7 +134,7 @@ namespace JaggedArrays.Tests
                new int[] { 4, 0, 2, 6 }
             };
 
-            JaggedSorter.Sort(array, new MinElemDescendingComparer());
+            InterfaceDelegate.Sort(array, new MinElemDescendingComparer());
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -160,7 +160,7 @@ namespace JaggedArrays.Tests
                 new int[] { 22, 33, 11 }
             };
 
-            JaggedSorter.Sort(array, new SumAscendingComparer());
+            InterfaceDelegate.Sort(array, new SumAscendingComparer());
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -186,7 +186,7 @@ namespace JaggedArrays.Tests
                null
             };
 
-            JaggedSorter.Sort(array, new SumDescendingComparer());
+            InterfaceDelegate.Sort(array, new SumDescendingComparer());
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -212,7 +212,7 @@ namespace JaggedArrays.Tests
                 new int[] { 22, 33, 11 }
             };
 
-            JaggedSorter.Sort(array, new MaxElemAscendingComparer());
+            InterfaceDelegate.Sort(array, new MaxElemAscendingComparer());
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -238,7 +238,7 @@ namespace JaggedArrays.Tests
                null
             };
 
-            JaggedSorter.Sort(array, new MaxElemDescendingComparer());
+            DelegateInterface.Sort(array, new MaxElemDescendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -264,7 +264,7 @@ namespace JaggedArrays.Tests
                new int[] { 22, 33, 11 },
             };
 
-            JaggedSorter.Sort(array, new MinElemAscendingComparer());
+            DelegateInterface.Sort(array, new MinElemAscendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
@@ -291,33 +291,27 @@ namespace JaggedArrays.Tests
                 null
             };
 
-            JaggedSorter.Sort(array, new MinElemDescendingComparer());
+            DelegateInterface.Sort(array, new MinElemDescendingComparer().ToCompare);
 
             CollectionAssert.AreEqual(expected, array);
         }
 
         [Test]
-        public void MethodSort_NullComparer_ArgumentNullExcepton()
-        {
-            Assert.Throws<ArgumentNullException>(() => JaggedSorter.Sort(new int[][] { new int[] { 1, 3, 5, 7, 9 } }, null));
-        }
-
-        [Test]
         public void MethodSort_NullArray_ArgumentNullExcepton()
         {
-            Assert.Throws<ArgumentNullException>(() => JaggedSorter.Sort(null, new SumAscendingComparer()));
+            Assert.Throws<ArgumentNullException>(() => InterfaceDelegate.Sort(null, new SumAscendingComparer()));
         }
 
         [Test]
         public void MethodSort_ArrayLengthZero_ArgumentExcepton()
         {
-            Assert.Throws<ArgumentException>(() => JaggedSorter.Sort(new int[][] { new int[] {  } }, new SumAscendingComparer()));
+            Assert.Throws<ArgumentException>(() => InterfaceDelegate.Sort(new int[][] { new int[] {  } }, new SumAscendingComparer()));
         }
 
         [Test]
         public void MethodSort_OneOfArrayLengthZero_ArgumentExcepton()
         {
-            Assert.Throws<ArgumentException>(() => JaggedSorter.Sort(new int[][] { new int[] { } }, new SumAscendingComparer()));
+            Assert.Throws<ArgumentException>(() => InterfaceDelegate.Sort(new int[][] { new int[] { } }, new SumAscendingComparer()));
         }
     }
 }
